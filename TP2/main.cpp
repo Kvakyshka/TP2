@@ -1,5 +1,8 @@
 #include <iostream>
 #include <string>
+
+#include<conio.h>
+#include <Windows.h>
 using namespace std;
 
 class Student
@@ -115,6 +118,7 @@ public:
 	}
 	Student operator +(int number)
 	{
+		cout << "ADD" << endl;
 		Student buffer(*this);
 		Setter_size(Getter_size() + 1);
 		array = new Student * [Getter_size()];
@@ -149,45 +153,81 @@ int main()
 {
 	string text;
 	Student object;
-	getline(cin, text);
+	char c, c1;
+	int flag = 1;
+	const char* oper[] =
+	{
+	  "Menu:",
+	 " 1 - Add",
+	 " 2 - Delete",
+	 " 3 - Show all",
+	 " 4 - Show students with 2",
+	 " 5 - Exit",
+	};
 
-	if (stoi(text) == 1)
+	while (flag != 0)
 	{
-		object + 1;
-	}
-	getline(cin, text);
-	if (stoi(text) == 1)
-	{
-		object + 1;
-	}
-	getline(cin, text);
-	if (stoi(text) == 1)
-	{
-		object + 1;
-	}
+		for (int i = 0; i < 6; i++)
+		{
+			cout << oper[i] << endl;
+		}
+		cout << "Enter option number";
+		c = _getch();
+		if (c == '1')
+		{
+			system("cls");
+			object + 1;
+			cout << "0-Menu: ";
+			c1 = _getch();
+			if (c1 == '0')
+			{
+				system("cls");
+			}
 
-	getline(cin, text);
-	if (stoi(text) == 2)
-	{
-		object.Show_all();
-	}
+		}
+		if (c == '2')
+		{
+			system("cls");
+			object.Show_all();
+			cout << "Select item number to delete: ";
+			getline(cin, text);
+			object - (stoi(text));
+			cout << "0-Menu: ";
+			c1 = _getch();
+			if (c1 == '0')
+			{
+				system("cls");
+			}
 
-	getline(cin, text);
-	if (stoi(text) == 3)
-	{
-		object.Show_grade2();
-	}
-	getline(cin, text);
-	if (stoi(text) == 3)
-	{
-		cout << "VV num" << endl;
-		getline(cin, text);
-		object - (stoi(text));
-	}
-	getline(cin, text);
-	if (stoi(text) == 2)
-	{
-		object.Show_all();
+		}
+		if (c == '3')
+		{
+			system("cls");
+			object.Show_all();
+			cout << "0-Menu: ";
+			c1 = _getch();
+			if (c1 == '0')
+			{
+				system("cls");
+			}
+		}
+		if (c == '4')
+		{
+			system("cls");
+			object.Show_grade2();
+			cout << "0-Menu: ";
+			c1 = _getch();
+			if (c1 == '0')
+			{
+				system("cls");
+			}
+		}
+		if (c == '5')
+		{
+			system("cls");
+			flag = 0;
+			break;
+		}
 	}
 
 	return 0;
