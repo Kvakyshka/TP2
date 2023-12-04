@@ -1,12 +1,13 @@
 #include "Student.h"
-#include<conio.h>
+#include "keeper.h"
+#include <conio.h>
 #include <Windows.h>
 using namespace std;
 
 int main()
 {
 	string text;
-	Student object;
+	Keeper object;
 	char c, c1;
 	int flag = 1;
 	const char* oper[] =
@@ -72,7 +73,7 @@ int main()
 				object.Show_all();
 				cout << "What change?: ";
 				getline(cin, num);
-				object.Edit(stoi(num));
+				object.Edit_all(stoi(num));
 			}
 			else
 				cout << "There are no students in the database" << endl;
