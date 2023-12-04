@@ -2,6 +2,11 @@
 #include <iostream>
 #include <string>
 using namespace std;
+struct Subject
+{
+	string name_subject;
+	int grade;
+};
 class Student
 {
 	string name;
@@ -11,11 +16,7 @@ class Student
 	
 public:
 
-	struct Subject
-	{
-		string name_subject;
-		int grade;
-	};
+	
 	Subject* subjects;
 
 	~Student() {};
@@ -36,4 +37,6 @@ public:
 	int Getter_number_subjects();
 	void Add_subjects_grade(string name_subject, int grade, int num);
 	void Show();
+	friend istream& operator >>(istream& os, Student& el);
+	friend ostream& operator <<(ostream& os, const Student& el);
 };

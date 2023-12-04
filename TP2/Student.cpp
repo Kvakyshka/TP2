@@ -142,6 +142,53 @@ void Student::Show()
 
 }
 
+ostream& operator <<(ostream& os, const Student& el)
+{
+	os << el.name << ' ' << el.group<< endl;
+	for (int i = 0; i < el.number_subjects; i++)
+	{
+		os << "subject: "<<el.subjects[i].name_subject << endl << " Grade: " << el.subjects[i].grade<<endl;//tyt menyti vivod esli shto
+	}
+	os << endl;
+	return os;
+}
+
+
+istream& operator >>(istream& os, Student& el)
+{
+	string buf,buf2;
+
+	cout << "input name" << endl;
+	getline(os, buf);
+	el.name = buf;
+
+	cout << "group" << endl;
+	getline(os, buf);
+	el.group = buf;
+
+
+	cout << "number subject" << endl;
+	getline(os, buf);
+	
+	el.number_subjects = stoi(buf);
+	cout << el.number_subjects << endl;
+	
+	el.subjects = new Subject[el.number_subjects];
+	for (int i = 0; i < el.number_subjects; i++)
+	{
+		cout << "name_subject" << endl;
+		getline(os, buf2);
+		
+		el.subjects[i].name_subject = buf2;
+		
+
+		cout << "grade" << endl;
+		getline(os, buf);
+		el.subjects[i].grade = stoi(buf);
+
+	}
+	return os;
+}
 float Student::CalculateGPA()
 {
 	float sum = 0;

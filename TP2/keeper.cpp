@@ -60,14 +60,15 @@ void Keeper::Show_grade2()
 
 void Keeper::Setter_size(int size) { this->size = size; };
 
-
 void Keeper::Show_all()
 {
+
+
 	cout << "All the students:" << endl;
 	for (int i = 0; i < Getter_size(); i++)
 	{
 		cout << i + 1 << endl;
-		array[i].Show();
+		cout<<array[i];
 	}
 }
 Keeper Keeper ::operator +(int number)
@@ -80,7 +81,7 @@ Keeper Keeper ::operator +(int number)
 	{
 		array[i] = buffer.array[i];
 	}
-	array[Getter_size() - 1].add();
+	cin>>array[Getter_size() - 1];
 	return *this;
 }
 Keeper Keeper ::operator -(int number)
